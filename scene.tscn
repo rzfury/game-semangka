@@ -1,0 +1,59 @@
+[gd_scene load_steps=5 format=3 uid="uid://w2inpbwmd5wn"]
+
+[ext_resource type="Script" path="res://scene.cs" id="1_p5upu"]
+[ext_resource type="Texture2D" uid="uid://bpm2u0e2dgg3c" path="res://artworks-yoGvS9dwIIwHc57K-TlVy7A-t500x500.png" id="1_pgdyr"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sngkt"]
+size = Vector2(39.5, 726.875)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_q3bvb"]
+size = Vector2(469, 82)
+
+[node name="Scene" type="Node2D"]
+script = ExtResource("1_p5upu")
+
+[node name="Area2D1" type="RigidBody2D" parent="."]
+freeze = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Area2D1"]
+position = Vector2(152, 40)
+scale = Vector2(0.064, 1.456)
+texture = ExtResource("1_pgdyr")
+centered = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D1"]
+position = Vector2(168, 400)
+shape = SubResource("RectangleShape2D_sngkt")
+
+[node name="Area2D2" type="RigidBody2D" parent="."]
+position = Vector2(432, 0)
+freeze = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Area2D2"]
+position = Vector2(152, 40)
+scale = Vector2(0.064, 1.456)
+texture = ExtResource("1_pgdyr")
+centered = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2"]
+position = Vector2(168, 400)
+shape = SubResource("RectangleShape2D_sngkt")
+
+[node name="Area2D3" type="RigidBody2D" parent="."]
+position = Vector2(200, -8)
+freeze = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Area2D3"]
+position = Vector2(-48, 696)
+scale = Vector2(0.928, 0.144)
+texture = ExtResource("1_pgdyr")
+centered = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D3"]
+position = Vector2(181.5, 735)
+shape = SubResource("RectangleShape2D_q3bvb")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(392, 392)
+
+[connection signal="OnBuledCollide" from="." to="." method="BuledCollide"]

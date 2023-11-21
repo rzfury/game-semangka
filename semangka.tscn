@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://don0jb7cvueov"]
+
+[ext_resource type="Script" path="res://semangka.cs" id="1_8mi4c"]
+[ext_resource type="Texture2D" uid="uid://3qu8wuvb8220" path="res://1.png" id="2_t3qil"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_14aae"]
+
+[node name="Semangka" type="RigidBody2D"]
+disable_mode = 1
+script = ExtResource("1_8mi4c")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("2_t3qil")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(2.155, 2.155)
+shape = SubResource("CircleShape2D_14aae")
+
+[connection signal="body_entered" from="." to="." method="OnBodyEntered"]
